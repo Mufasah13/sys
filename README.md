@@ -11,4 +11,4 @@ Digital police management system:
   3. Management of cases and easy tracking.
   4. Regular Police Dashboard and Admin Dashboard.
   
- To run the project all you need is to install the dependancies as they are in the package.json file in the root directory.
+ To run the application all you need is to install the dependancies as they are in the package.json file in the root directory.
