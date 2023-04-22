@@ -6,15 +6,26 @@ fetch("/api/police")
     loading.style.display
      = 'none';
     const tableBody = document.getElementById("table-body");
+    console.log(data)
 
     data.forEach((item) => {
+      let caseArray = "";
+      item.officerCases.forEach((caseCode, index) => {
+        caseArray += caseCode;
+        if (index !== item.officerCases.length - 1) {
+          caseArray += ', ';
+        }
+      });      
+      const registration = item.regNo
+      if(!registration.startsWith("A")){
         const row = tableBody.insertRow();
-        const nameCell = row.insertCell();
-        const officerNoCell = row.insertCell();
-        const caseAssignedCell = row.insertCell()
-        nameCell.innerText = item.name;
-        officerNoCell.innerText = item.regNo;
-        caseAssignedCell.innerText = item.caseAssigned;
+      const nameCell = row.insertCell();
+      const officerNoCell = row.insertCell();
+      const caseAssignedCell = row.insertCell()
+      nameCell.innerText = item.name;
+      officerNoCell.innerText = item.regNo; 
+      caseAssignedCell.innerText=caseArray;
+      }
     });
 });
 

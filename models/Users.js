@@ -1,4 +1,5 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+
 
 const UserSchema = new mongoose.Schema(
   {
@@ -34,12 +35,17 @@ const UserSchema = new mongoose.Schema(
       required: true,
       min: 6,
     },
-   officerCases:{
-    type: [String]
-   }
+    officerCases: {
+      type: [String],
+    },
   },
   { timestamps: true }
 );
 
-var User = mongoose.model("User", UserSchema);
+UserSchema.methods.addCase = function (caseCode) {
+  this.officerCases.push(caseCode);
+  return this.save();
+};
+
+const User = mongoose.model("User", UserSchema);
 export default User;

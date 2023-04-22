@@ -29,8 +29,8 @@ const app = express();
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 app.set("view engine", "ejs");
 // Set the directory for views
-// app.set("views", __dirname + "/views");
-app.set('views', 'C:/Users/ASHIE/Desktop/police-management-system-main/views');
+app.set("views", __dirname + "/views");
+// app.set('views', 'C:/Users/ASHIE/Desktop/police-management-system-main/views');
 
 // app.set("views", path.join(__dirname, "views"));
 dotenv.config();
@@ -98,7 +98,7 @@ function requireRegNoA(req, res, next) {
   if (user && user.regNo && user.regNo.startsWith('A')) {
     next();
   } else {
-    alert("UnAuthorise")
+    // alert("UnAuthorise")
     res.redirect('/login');
   }
 }
